@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+<!-- Adding Boostrap core CSS for the dropdown customization -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+	<!-- This is the menu table -->
+	<div class="panel panel-default">
+		<!-- This is the table heading -->
+		  <div class="panel-heading">Menu Items</div>
+
+		  <!-- This is the table contents -->
+		  <table class="table" id="Menu">
+
+			<tr>
+			<td>Appetizers</td>
+			<!-- Note these cells have ids assigned -->
+			<td id="app1">Soup</td>
+			<td id="app2">Salad</td>
+			</tr>
+			<tr>
+			<td>Mains</td>
+			<td>Pasta</td>
+			<td>Steak</td>
+			</tr>
+		</table>
+	</div>
+
+	<!-- This button, on click or when pressed, will trigger the javascript function called changeText -->
+	<p>
+	<input type="button" onclick="javascript:changeText(1); return false;" value="Summer Specials">
+	</p>
+</div>
+<!--How would you link the JS code to the HTML?-->
+	<!--**ADD CODE HERE**-->
+</body>
+</html>
