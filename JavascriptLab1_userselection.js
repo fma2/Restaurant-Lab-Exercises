@@ -15,6 +15,7 @@ var option1Selected = option1.options[option1.selectedIndex].text;
 var option2 = document.getElementById('box2');
 var option2Selected = option2.options[option2.selectedIndex].text;
 
+
 /*
 These functions tell option1 and option2 to run the "redirect" function once its values are changed.
 In our case, the values are changed when a dropdown item is selected.
@@ -41,9 +42,32 @@ HINT: you need to write several if statements for each possible text combination
 */
 
 function redirect() {
-	if (//fill in your if statement here **ADD CODE HERE**
-		) {
-		location.href="www...";
-	}
+	var contentDiv = document.getElementById('content');
+  contentDiv.innerHTML = '';
+
+
+	var url = "https://www.googleapis.com/customsearch/v1?q=" + option1Selected +"+" + option2Selected +"&cx=004097077942652612764%3Ayrferp2ct9e&key=" //remember to add API key before running!
+	$.getJSON(url, function(data) {
+    //data is the JSON string
+    console.log(data);
+    var results = data["items"];
+    for (var i = 0; i < results.length; i++) {
+      // For each result write it's title and add its link to the screen
+      var result = results[i];
+      console.log(result);
+      var linkContainer = document.createElement('div');
+      var title = document.createElement('div');
+      var newLink = document.createElement('a');
+
+      newLink.innerHTML = result.htmlSnippet;
+      newLink.href="http://" + result.htmlFormattedUrl;
+      
+      title.appendChild(newLink);
+      linkContainer.appendChild(title);
+
+      contentDiv.appendChild(linkContainer);
+    }
+  });
+
 }
 
